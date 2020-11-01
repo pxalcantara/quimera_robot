@@ -22,4 +22,6 @@
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
         args="-urdf -model quimera_robot -param quimera_robot/robot_description "/>
+
+    <include file="$(find quimera_robot_control)/launch/quimera_control.launch" />
 </launch>
