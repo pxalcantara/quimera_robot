@@ -16,10 +16,10 @@
     </include>
 
     <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="/robot_description"
+    <param name="quimera_robot/robot_description"
         command="$(find xacro)/xacro '$(find mobile_robot_description)/urdf/quimera_robot.urdf.xacro'"/>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-urdf -model quimera_robot -param /robot_description "/>
+        args="-urdf -model quimera_robot -param quimera_robot/robot_description "/>
 </launch>
