@@ -5,9 +5,10 @@
     <arg name="gui" default="true"/>
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
-    
+
     <!-- If true, rqt_robot_steering is also launched -->
     <arg name="manual_control" default="false"/>
+    <arg name="rviz" default="false"/>
 
     <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -33,6 +34,8 @@
     <include file="$(find quimera_robot_control)/launch/quimera_control.launch" >
         <arg name="manual_control" value="$(arg manual_control)"/>
     </include>
-
-    <!-- <include file="$(find mobile_robot_description)/launch/quimera_robot_rviz.launch" /> -->
+    
+    <group if="$(arg rviz)" >
+        <include file="$(find mobile_robot_description)/launch/quimera_robot_rviz.launch" />
+    </group>
 </launch>
