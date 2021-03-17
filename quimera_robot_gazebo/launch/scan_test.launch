@@ -1,0 +1,10 @@
+<launch>
+    <include file="$(find quimera_robot_gazebo)/launch/quimera_robot.launch" >
+        <arg name="world_name" value="scan_test"/>
+        <arg name="x_pos" value="0"/>
+        <arg name="y_pos" value="0"/>
+        <arg name="z_pos" value="0"/>
+    </include>
+    
+    
+</launch>
